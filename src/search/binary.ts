@@ -74,3 +74,40 @@ export function divideBinaryAccuracy(a: number, b: number): number {
 
   return Math.trunc(good * 1000) / 1000;
 }
+
+export function divideBinaryMaxAccuracyHack(a: number, b: number): number {
+  let bad = -1;
+  let good = a + 1;
+
+  // 60 - 2^60; 100 in prod
+  for(let i = 0; i <= 60; i++) {
+    const m = (good + bad) / 2;
+
+    if (b * m >= a) {
+      good = m;
+    } else {
+      bad = m;
+    }
+  }
+
+  return good;
+}
+
+// Reach the closest neighbour values
+export function divideBinaryMaxAccuracy(a: number, b: number): number {
+  let bad = -1;
+  let good = a + 1;
+
+  let m = (good + bad) / 2;
+  while(good !== m && bad !== m) {
+    if (b * m >= a) {
+      good = m;
+    } else {
+      bad = m;
+    }
+
+    m = (good + bad) / 2;
+  }
+
+  return good;
+}

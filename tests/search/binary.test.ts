@@ -2,7 +2,8 @@ import {
   binarySearch,
   binarySearchFirstEntryInsertionPosition,
   binarySearchLastEntry,
-  divideBinaryAccuracy
+  divideBinaryAccuracy,
+  divideBinaryMaxAccuracy, divideBinaryMaxAccuracyHack,
 } from "../../src/search/binary";
 
 describe("Binary", () => {
@@ -96,11 +97,23 @@ describe("Binary", () => {
     });
   });
 
-  describe("With accuracy", () => {
-    test("default accuracy", () => {
-      expect(divideBinaryAccuracy(100, 10)).toBe(10);
-      expect(divideBinaryAccuracy(6, 4)).toBe(1.5);
-      expect(divideBinaryAccuracy(100, 3)).toBe(33.333);
-    });
+  test("With accuracy", () => {
+    expect(divideBinaryAccuracy(100, 10)).toBe(10);
+    expect(divideBinaryAccuracy(6, 4)).toBe(1.5);
+    expect(divideBinaryAccuracy(100, 3)).toBe(33.333);
+  });
+
+  test("With max accuracy hack with for", () => {
+    expect(divideBinaryMaxAccuracyHack(100, 10)).toBe(10);
+    expect(divideBinaryMaxAccuracyHack(6, 4)).toBe(1.5);
+    expect(divideBinaryMaxAccuracyHack(100, 3)).toBe(33.333333333333336);
+    expect(divideBinaryMaxAccuracyHack(7, 3)).toBe( 2.3333333333333335);
+  });
+
+  test("With max accuracy", () => {
+    expect(divideBinaryMaxAccuracy(100, 10)).toBe(10);
+    expect(divideBinaryMaxAccuracy(6, 4)).toBe(1.5);
+    expect(divideBinaryMaxAccuracy(100, 3)).toBe(33.333333333333336);
+    expect(divideBinaryMaxAccuracy(7, 3)).toBe( 2.3333333333333335);
   });
 });
