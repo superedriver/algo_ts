@@ -57,3 +57,20 @@ export const binarySearchLastEntry = (arr: number[], key: number) => {
 
   return arr[bad] === key ? bad : -1;
 };
+
+export function divideBinaryAccuracy(a: number, b: number): number {
+  let bad = -1;
+  let good = a + 1;
+
+  while (good - bad > 0.0001) {
+    const m = (good + bad) / 2;
+
+    if (b * m >= a) {
+      good = m;
+    } else {
+      bad = m;
+    }
+  }
+
+  return Math.trunc(good * 1000) / 1000;
+}

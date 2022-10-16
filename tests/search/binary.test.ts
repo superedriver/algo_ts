@@ -2,6 +2,7 @@ import {
   binarySearch,
   binarySearchFirstEntryInsertionPosition,
   binarySearchLastEntry,
+  divideBinaryAccuracy
 } from "../../src/search/binary";
 
 describe("Binary", () => {
@@ -92,6 +93,14 @@ describe("Binary", () => {
 
     test("Empty Array returns -1", () => {
       expect(binarySearchLastEntry([], 8)).toBe(-1);
+    });
+  });
+
+  describe("With accuracy", () => {
+    test("default accuracy", () => {
+      expect(divideBinaryAccuracy(100, 10)).toBe(10);
+      expect(divideBinaryAccuracy(6, 4)).toBe(1.5);
+      expect(divideBinaryAccuracy(100, 3)).toBe(33.333);
     });
   });
 });
