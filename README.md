@@ -1,0 +1,1 @@
+﻿# Useful Algorithms, Data Structures and tricks on Typescript.
