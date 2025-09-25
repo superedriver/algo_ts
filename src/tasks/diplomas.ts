@@ -7,6 +7,9 @@ const isGoodEnough = (
   return Math.trunc(side / width) * Math.trunc(side / height) >= amount;
 };
 
+// Have width, height, amount of diplomas
+// Find a side of the minimum square board to place all the diplomas.
+// Diplomas can not be rotated.
 export const findMinBoardSize = (
   width: number,
   height: number,
