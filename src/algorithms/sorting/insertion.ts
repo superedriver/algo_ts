@@ -44,11 +44,30 @@ export const binaryInsertionSort = (array: number[]) => {
     let j = i;
 
     while (j > insertionIndex) {
-			const temp = sortedArray[j];
+      const temp = sortedArray[j];
       sortedArray[j] = sortedArray[j - 1]!;
       sortedArray[j - 1] = temp!;
       --j;
     }
+  }
+
+  return sortedArray;
+};
+
+// Perl of Programming optimisation
+export const insertionSortOptimised = (array: number[]) => {
+  const sortedArray = [...array];
+
+  for (let i = 1; i < sortedArray.length; i++) {
+    let j = i;
+    let current = sortedArray[j];
+
+    while (j > 0 && sortedArray[j - 1]! > current!) {
+      sortedArray[j] = sortedArray[j - 1]!;
+      --j;
+    }
+
+    sortedArray[j] = current!;
   }
 
   return sortedArray;
