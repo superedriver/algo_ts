@@ -364,7 +364,7 @@ describe("Heap", () => {
         }
       });
 
-      test.only("should handle negative and positive numbers", () => {
+      test("should handle negative and positive numbers", () => {
         const heap = new MinHeap([-5, 3, -8, 1, -9, 2, 0]);
         expect(heap.extractMin()).toBe(-9);
         expect(heap.extractMin()).toBe(-8);
