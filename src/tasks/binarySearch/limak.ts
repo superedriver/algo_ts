@@ -22,8 +22,6 @@ export const findMaxTaskAmount = (
 
   while (good - bad > 1) {
     const m = Math.trunc((good + bad) / 2);
-    console.log("m: ", m);
-    console.log("isGoodEnough m: ", isGoodEnough(timeLeft, m));
     if (isGoodEnough(timeLeft, m)) {
       bad = m;
     } else {
