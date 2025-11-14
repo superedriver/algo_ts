@@ -1,19 +1,18 @@
 export const selectionSort = (array: number[]) => {
-  const sortedArray = [...array];
-  const lastIndex = sortedArray.length - 1;
+  const lastIndex = array.length - 1;
 
   for (let i = 0; i <= lastIndex; i++) {
     let minIndex = i;
 
     for (let j = i; j <= lastIndex; j++) {
-      if (sortedArray[j]! < sortedArray[minIndex]!) {
-				minIndex = j;
+      if (array[j]! < array[minIndex]!) {
+        minIndex = j;
       }
     }
-		const temp = sortedArray[i];
-		sortedArray[i] = sortedArray[minIndex]!;
-		sortedArray[minIndex] = temp!;
+    const temp = array[i];
+    array[i] = array[minIndex]!;
+    array[minIndex] = temp!;
   }
 
-	return sortedArray;
+  return array;
 };

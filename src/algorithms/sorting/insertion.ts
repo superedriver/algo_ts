@@ -1,17 +1,16 @@
 export const insertionSort = (array: number[]): number[] => {
-  const sortedArray = [...array];
 
-  for (let i = 1; i < sortedArray.length; i++) {
+  for (let i = 1; i < array.length; i++) {
     let j = i;
-    while (j > 0 && sortedArray[j]! < sortedArray[j - 1]!) {
-      const temp = sortedArray[j];
-      sortedArray[j] = sortedArray[j - 1]!;
-      sortedArray[j - 1] = temp!;
+    while (j > 0 && array[j]! < array[j - 1]!) {
+      const temp = array[j];
+      array[j] = array[j - 1]!;
+      array[j - 1] = temp!;
       --j;
     }
   }
 
-  return sortedArray;
+  return array;
 };
 
 // Use BinarySearch for insertion index

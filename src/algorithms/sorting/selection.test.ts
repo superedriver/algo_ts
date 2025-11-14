@@ -57,21 +57,6 @@ describe("selectionSort", () => {
     });
   });
 
-  describe("Performance characteristics", () => {
-    test("should not modify the original array", () => {
-      const originalArray = [3, 1, 4, 1, 5];
-      const originalCopy = [...originalArray];
-      selectionSort(originalArray);
-      expect(originalArray).toEqual(originalCopy);
-    });
-
-    test("should return a new array", () => {
-      const originalArray = [3, 1, 4, 1, 5];
-      const result = selectionSort(originalArray);
-      expect(result).not.toBe(originalArray);
-    });
-  });
-
   describe("Specific number patterns", () => {
     test("should sort decimal numbers", () => {
       expect(selectionSort([3.1, 1.5, 2.9, 1.1])).toEqual([1.1, 1.5, 2.9, 3.1]);

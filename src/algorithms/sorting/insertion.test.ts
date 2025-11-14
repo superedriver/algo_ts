@@ -57,21 +57,6 @@ describe("insertionSort", () => {
     });
   });
 
-  describe("Performance characteristics", () => {
-    test("should not modify the original array", () => {
-      const originalArray = [3, 1, 4, 1, 5];
-      const originalCopy = [...originalArray];
-      insertionSort(originalArray);
-      expect(originalArray).toEqual(originalCopy);
-    });
-
-    test("should return a new array", () => {
-      const originalArray = [3, 1, 4, 1, 5];
-      const result = insertionSort(originalArray);
-      expect(result).not.toBe(originalArray);
-    });
-  });
-
   describe("Specific number patterns", () => {
     test("should sort decimal numbers", () => {
       expect(insertionSort([3.1, 1.5, 2.9, 1.1])).toEqual([1.1, 1.5, 2.9, 3.1]);
@@ -202,21 +187,6 @@ describe("binaryInsertionSort", () => {
 
     test("should sort an array with many duplicates", () => {
       expect(binaryInsertionSort([3, 1, 3, 2, 1, 3, 2, 1, 3])).toEqual([1, 1, 1, 2, 2, 3, 3, 3, 3]);
-    });
-  });
-
-  describe("Performance characteristics", () => {
-    test("should not modify the original array", () => {
-      const originalArray = [3, 1, 4, 1, 5];
-      const originalCopy = [...originalArray];
-      binaryInsertionSort(originalArray);
-      expect(originalArray).toEqual(originalCopy);
-    });
-
-    test("should return a new array", () => {
-      const originalArray = [3, 1, 4, 1, 5];
-      const result = binaryInsertionSort(originalArray);
-      expect(result).not.toBe(originalArray);
     });
   });
 
@@ -385,21 +355,6 @@ describe("insertionSortOptimised", () => {
 
     test("should sort an array with many duplicates", () => {
       expect(insertionSortOptimised([3, 1, 3, 2, 1, 3, 2, 1, 3])).toEqual([1, 1, 1, 2, 2, 3, 3, 3, 3]);
-    });
-  });
-
-  describe("Performance characteristics", () => {
-    test("should not modify the original array", () => {
-      const originalArray = [3, 1, 4, 1, 5];
-      const originalCopy = [...originalArray];
-      insertionSortOptimised(originalArray);
-      expect(originalArray).toEqual(originalCopy);
-    });
-
-    test("should return a new array", () => {
-      const originalArray = [3, 1, 4, 1, 5];
-      const result = insertionSortOptimised(originalArray);
-      expect(result).not.toBe(originalArray);
     });
   });
 
