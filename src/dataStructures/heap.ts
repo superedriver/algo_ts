@@ -95,13 +95,13 @@ export class MinHeap {
 export class MaxHeap {
   // start from the 0 position
   // left = 2i+1, right = 2i + 2, father = (i-1)/2
-  private heap: number[];
+  heap: number[];
   private lastIndex: number;
 
   constructor(arr: number[] = []) {
     this.heap = arr;
     this.lastIndex = arr.length - 1;
-    for (let i = Math.trunc(this.heap.length / 2) + 1; i > 0; i--) {
+    for (let i = Math.trunc(this.heap.length / 2) + 1; i >= 0; i--) {
       this.siftDown(i);
     }
   }
@@ -179,7 +179,7 @@ export class MaxHeap {
         2 * index + 2 <= this.lastIndex &&
         this.heap[2 * index + 2]! > this.heap[tempMaxIndex]!
       ) {
-        tempMaxIndex = 2 * index + 1;
+        tempMaxIndex = 2 * index + 2;
       }
 
       if (tempMaxIndex === index) {
