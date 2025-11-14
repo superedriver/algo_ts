@@ -377,10 +377,10 @@ describe("Heap", () => {
     });
 
     describe("Sort", () => {
-      test("should return undefined for empty heap", () => {
+      test("should return empty array for empty heap", () => {
         const heap = new MinHeap();
         const result = heap.sort();
-        expect(result).toBeUndefined();
+        expect(result).toEqual([]);
         expect(heap.isEmpty).toBe(true);
         expect(heap.size).toBe(0);
       });
