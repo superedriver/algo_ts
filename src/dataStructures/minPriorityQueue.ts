@@ -6,7 +6,7 @@ export type Comparator<T> = (a: T, b: T) => number;
 export class MinPriorityQueue<T> {
   // start from the 0 position
   // left = 2i+1, right = 2i + 2, father = (i-1)/2
-  heap: T[];
+  private heap: T[];
   private lastIndex: number;
   private compare: Comparator<T>;
 
