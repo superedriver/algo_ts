@@ -7,7 +7,7 @@ export class MinHeap {
   constructor(arr: number[] = []) {
     this.heap = [0, ...arr];
     this.lastIndex = arr.length;
-    for (let i = Math.trunc(this.heap.length / 2) + 1; i > 0; i--) {
+    for (let i = Math.trunc(this.heap.length / 2); i > 0; i--) {
       this.siftDown(i);
     }
   }
@@ -95,7 +95,7 @@ export class MinHeap {
 export class MaxHeap {
   // start from the 0 position
   // left = 2i+1, right = 2i + 2, father = (i-1)/2
-  heap: number[];
+  private heap: number[];
   private lastIndex: number;
 
   constructor(arr: number[] = []) {
@@ -120,7 +120,7 @@ export class MaxHeap {
       return null;
     }
 
-    return this.heap[1];
+    return this.heap[0];
   }
 
   get isEmpty() {
@@ -128,9 +128,8 @@ export class MaxHeap {
   }
 
   extractMax() {
-    if (this.isEmpty) {
-      return 0;
-    }
+    if (this.isEmpty) return null;
+
     const max = this.heap[0];
     this.heap[0] = this.heap[this.lastIndex--]!;
     this.siftDown(0);

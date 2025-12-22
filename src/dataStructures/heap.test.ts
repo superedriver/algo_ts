@@ -637,7 +637,7 @@ describe("Heap", () => {
     describe("ExtractMax", () => {
       test("should return 0 for empty heap", () => {
         const heap = new MaxHeap();
-        expect(heap.extractMax()).toBe(0);
+        expect(heap.extractMax()).toBe(null);
       });
 
       test("should extract maximum from single element heap", () => {
@@ -1024,7 +1024,7 @@ describe("Heap", () => {
       test("should not allow extraction after sorting", () => {
         const heap = new MaxHeap([5, 3, 8, 1, 9]);
         heap.sort();
-        expect(heap.extractMax()).toBe(0);
+        expect(heap.extractMax()).toBe(null);
         expect(heap.peak()).toBe(null);
       });
 
