@@ -90,7 +90,9 @@ export class Huffman {
       const left = mpq.extractMin();
       const right = mpq.extractMin();
       if (left === null || right === null) {
-        throw new Error("Huffman: Create InternalNodes returned null while size > 1");
+        throw new Error(
+          "Huffman: Create InternalNodes returned null while size > 1",
+        );
       }
       const internalNode = new InternalNode(left, right);
       mpq.insert(internalNode);
@@ -109,7 +111,7 @@ export class Huffman {
       symbolToNode[leaf.symbol] = leaf;
     }
 
-    let answer = "";
+    let answer = [];
 
     // build codeToSymbol for decoding
     this.codeToSymbol = Object.values(symbolToNode).reduce(
@@ -127,24 +129,24 @@ export class Huffman {
         throw new Error("invalid char");
       }
       const code = symbolToNode[curr].code;
-      answer += code;
+      answer.push(code);
     }
 
-    this.encodedText = answer;
+    this.encodedText = answer.join("");
   }
 
   decode() {
-    let result = "";
+    let result = [];
     let currentCode = "";
     for (let i = 0; i < this.encodedText.length; i++) {
       currentCode += this.encodedText[i];
       if (this.codeToSymbol[currentCode]) {
-        result += this.codeToSymbol[currentCode];
+        result.push(this.codeToSymbol[currentCode]);
         currentCode = "";
       }
     }
 
-    return result;
+    return result.join("");
   }
 }
 
